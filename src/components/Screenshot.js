@@ -57,7 +57,7 @@ export default function Screenshot({ onImageLoad }) {
     <div className="flex flex-col items-center gap-4">
       {!loading && (
         <button
-          onClick={fetchRandomImage}
+          onClick={handleGetAnotherClick}
           className="px-20 py-5 bg-gray-700 text-white rounded hover:bg-gray-700 transition-colors border border-gray-700"
         >
           Get Another Screenshot
