@@ -58,16 +58,16 @@ export default function CaptionInput({ screenshotId, onCaptionAdded }) {
 
   if (!session) {
     return (
-      <div className="text-center p-4 bg-gray-50 rounded-lg">
-        <p className="text-gray-600">Sign in to add a caption!</p>
+      <div className="text-center p-4 bg-gray-800 rounded-lg">
+        <p className="text-gray-300">Sign in to add a caption!</p>
       </div>
     )
   }
 
   if (hasSubmitted) {
     return (
-      <div className="text-center p-4 bg-gray-50 rounded-lg">
-        <p className="text-gray-600">You've already submitted a caption for this screenshot!</p>
+      <div className="text-center p-4 bg-gray-800 rounded-lg">
+        <p className="text-gray-300">You've already submitted a caption for this screenshot!</p>
       </div>
     )
   }
@@ -80,7 +80,7 @@ export default function CaptionInput({ screenshotId, onCaptionAdded }) {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="What's your caption for this screenshot?"
-          className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
           disabled={isSubmitting || hasSubmitted}
         />
         <button
