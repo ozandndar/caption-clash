@@ -1,0 +1,119 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String        @id @default(cuid())
+  email         String        @unique
+  name          String?
+  emailVerified DateTime?
+  image         String?       // for Google avatar
+  captions      Caption[]
+  likes         Like[]        // User's likes on captions
+  viewHistory   ViewHistory[] // Track daily image views
+  createdAt     DateTime      @default(now())
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model Screenshot {
+  id              String        @id @default(cuid())
+  url             String
+  lightshotUrl    String?
+  isVerified      Boolean       @default(false)    // Marks if image was successfully loaded
+  viewCount       Int           @default(0)        // Total views
+  captionCount    Int           @default(0)        // Total captions
+  totalLikes      Int           @default(0)        // Sum of likes on all captions
+  lastShownAt     DateTime      @default(now())    // Track when image was last displayed
+  status          ImageStatus   @default(PENDING)   // Track image status
+  createdAt       DateTime      @default(now())
+  captions        Caption[]
+  viewHistory     ViewHistory[]
+}
+
+enum ImageStatus {
+  PENDING     // Just added to DB
+  VERIFIED    // Successfully loaded and shown
+  FAILED      // Failed to load or inappropriate
+  POPULAR     // Has significant engagement
+}
+
+model Caption {
+  id           String     @id @default(cuid())
+  text         String
+  createdAt    DateTime   @default(now())
+  screenshot   Screenshot @relation(fields: [screenshotId], references: [id])
+  screenshotId String
+  author       User      @relation(fields: [authorId], references: [id])
+  authorId     String
+  likes        Like[]    // All likes on this caption
+  likeCount    Int       @default(0)  // Cache the like count
+}
+
+model Like {
+  id         String   @id @default(cuid())
+  caption    Caption  @relation(fields: [captionId], references: [id])
+  captionId  String
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  createdAt  DateTime @default(now())
+
+  @@unique([captionId, userId]) // Prevents duplicate likes
+}
+
+model ViewHistory {
+  id           String     @id @default(cuid())
+  user         User       @relation(fields: [userId], references: [id])
+  userId       String
+  screenshot   Screenshot @relation(fields: [screenshotId], references: [id])
+  screenshotId String
+  viewedAt     DateTime   @default(now())
+
+  @@index([userId, viewedAt]) // Index for faster queries when checking daily limits
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
