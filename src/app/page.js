@@ -23,19 +23,61 @@ export default function Home() {
 
   if (!session) {
     return (
-      <main className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-3xl font-bold mb-8">
-          Welcome to Caption Contest
-        </h1>
-        <div className="max-w-2xl mx-auto bg-gray-800 rounded-lg p-8">
-          <p className="text-xl text-gray-300 mb-6">
-            Sign in to start captioning random screenshots and compete with others!
-          </p>
+      <main className="container mx-auto px-4 py-16">
+        <div className="max-w-3xl mx-auto text-center space-y-8">
+          <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+            Welcome to Caption Clash
+          </h1>
+          
+          <div className="space-y-6 text-gray-300">
+            <p className="text-xl">
+              Join the ultimate screenshot captioning competition! We collect random screenshots from Lightshot users and turn them into a hilarious caption contest.
+            </p>
+            
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <p className="mb-4">
+                🎯 <span className="text-white">How it works:</span>
+              </p>
+              <ul className="space-y-3 text-left list-none">
+                <li className="flex items-start">
+                  <span className="mr-2">👀</span>
+                  <span>Discover random screenshots from around the web</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">💭</span>
+                  <span>Add your witty, funny, or clever captions</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">👍</span>
+                  <span>Vote for the most hilarious captions</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">🏆</span>
+                  <span>Compete for the top spot on our leaderboard</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-800/50 p-6 rounded-lg text-left">
+              <h2 className="text-2xl font-bold mb-4 text-white text-center">About the Screenshots</h2>
+              <p className="mb-4">
+                Lightshot is one of the most popular screenshot tools in the world, with over 5 billion screenshots taken by users globally. These screenshots capture moments from everyday internet browsing, gaming sessions, funny conversations, and more.
+              </p>
+              <p>
+                In Caption Clash, we randomly access these public screenshots, giving you a unique window into what people around the world are capturing on their screens. Each screenshot is a mystery waiting for your witty interpretation!
+              </p>
+            </div>
+
+            <p className="text-lg">
+              The most liked captions are usually the most hilarious ones. Join our community and show off your humor!
+            </p>
+          </div>
+
           <button
             onClick={() => signIn()}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            className="mt-8 px-8 py-4 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transform hover:scale-105 transition-all duration-200"
           >
-            Sign in to Get Started
+            Sign in to Start Captioning
           </button>
         </div>
       </main>
