@@ -21,7 +21,14 @@ async function verifyImageUrl(url) {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
       },
+      redirect: 'manual' // Don't follow redirects, give us the redirect response instead
     });
+
+    // If we get a redirect status code (3xx), skip the image
+    if (response.status >= 300 && response.status < 400) {
+      console.log(`❌ Image has redirect (${response.status}), skipping`);
+      return false;
+    }
 
     if (!response.ok) {
       console.log(`❌ Image verification failed: ${response.status} ${response.statusText}`);
