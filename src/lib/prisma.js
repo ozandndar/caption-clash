@@ -2,10 +2,21 @@ import { PrismaClient } from '@prisma/client'
 
 const globalForPrisma = global
 
-export const prisma = 
-  globalForPrisma.prisma ?? 
-  new PrismaClient({
-    log: ['query'],
+// Check if we already have a Prisma instance
+if (!globalForPrisma.prisma) {
+  globalForPrisma.prisma = new PrismaClient({
+    log: ['error'],
+    datasources: {
+      db: {
+        url: process.env.DATABASE_URL
+      }
+    }
   })
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma 
+  // Explicitly handle connection cleanup
+  process.on('beforeExit', () => {
+    globalForPrisma.prisma.$disconnect()
+  })
+}
+
+export const prisma = globalForPrisma.prisma 

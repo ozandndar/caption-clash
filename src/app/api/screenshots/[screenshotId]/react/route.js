@@ -12,7 +12,7 @@ const POINTS = {
 export async function POST(request, { params }) {
   try {
     const session = await getServerSession(authOptions)
-    const { screenshotId } = params
+    const { screenshotId } = await params
     const { type } = await request.json()
 
     if (!session?.user) {
