@@ -5,6 +5,7 @@ import Screenshot from '@/components/Screenshot';
 import CaptionInput from '@/components/CaptionInput';
 import CaptionList from '@/components/CaptionList';
 import SlideOver from '@/components/SlideOver';
+import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 
 export default function Home() {
   const { data: session } = useSession();
@@ -80,6 +81,7 @@ export default function Home() {
             Sign in to Start Captioning
           </button>
         </div>
+        <PWAInstallPrompt />
       </main>
     );
   }
