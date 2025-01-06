@@ -121,13 +121,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={GeistMono.className}>
       <head>
+        <meta name='application-name' content='Caption Clash' />
+        <meta name='apple-mobile-web-app-capable' content='yes' />
+        <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+        <meta name='apple-mobile-web-app-title' content='Caption Clash' />
+        <meta name='format-detection' content='telephone=no' />
+        <meta name='mobile-web-app-capable' content='yes' />
+        <meta name='theme-color' content='#1F2937' />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <meta property="og:site_name" content="Caption Clash" />
         <meta name="author" content="Caption Clash Team" />
-        <meta name="theme-color" content="#1F2937" />
         <link rel="icon" href="/icons/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />

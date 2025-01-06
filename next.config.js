@@ -1,6 +1,12 @@
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  register: true,
+  skipWaiting: true,
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
   images: {
     domains: [
       'image.prntscr.com',
@@ -10,6 +16,6 @@ const nextConfig = {
       // Add any other domains you need
     ],
   },
-}
+};
 
-module.exports = nextConfig 
+module.exports = withPWA(nextConfig); 
