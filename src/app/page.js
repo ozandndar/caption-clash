@@ -28,12 +28,12 @@ export default function Home() {
           <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
             Welcome to Caption Clash
           </h1>
-          
+
           <div className="space-y-6 text-gray-300">
             <p className="text-xl">
               Join the ultimate screenshot captioning competition! We collect random screenshots from Lightshot users and turn them into a hilarious caption contest.
             </p>
-            
+
             <div className="bg-gray-800 p-6 rounded-lg">
               <p className="mb-4">
                 🎯 <span className="text-white">How it works:</span>
@@ -89,27 +89,40 @@ export default function Home() {
       <h1 className="text-3xl font-bold text-center mb-8">
         Random Lightshot Screenshots
       </h1>
-      
+
       <div className="max-w-3xl mx-auto">
         <Screenshot onImageLoad={handleImageLoad} />
-        
+
         {currentScreenshotId && (
           <div className="mt-6">
-            <CaptionInput 
-              screenshotId={currentScreenshotId} 
+            <div className="bg-blue-900/30 border border-blue-500/30 rounded-lg p-4 mb-4">
+              <div className="flex items-start space-x-3">
+                <div className="flex-shrink-0">
+                  <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="text-sm text-gray-300">
+                  <p className="font-medium text-blue-400">Add your caption first!</p>
+                  <p>You'll be able to see other users' captions after submitting your own. This keeps the contest fun and ensures original ideas!</p>
+                </div>
+              </div>
+            </div>
+            <CaptionInput
+              screenshotId={currentScreenshotId}
               onCaptionAdded={handleCaptionAdded}
             />
           </div>
         )}
       </div>
 
-      <SlideOver 
-        open={showCaptions} 
+      <SlideOver
+        open={showCaptions}
         setOpen={setShowCaptions}
         title="Captions"
       >
-        <CaptionList 
-          screenshotId={currentScreenshotId} 
+        <CaptionList
+          screenshotId={currentScreenshotId}
           refreshTrigger={refreshKey}
         />
       </SlideOver>
