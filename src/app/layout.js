@@ -3,6 +3,7 @@ import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Providers } from "@/components/Providers"
 import PWAInstallPrompt from '@/components/PWAInstallPrompt';
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
   title: 'Caption Clash - Random Screenshot Caption Contest',
@@ -167,6 +168,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <PWAInstallPrompt />
+          <Analytics />
         </Providers>
       </body>
     </html>
