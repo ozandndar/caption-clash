@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { useSession } from 'next-auth/react'
+import { useSession, signIn } from 'next-auth/react'
 
 export default function CaptionList({ screenshotId, refreshTrigger }) {
   const [captions, setCaptions] = useState([])
@@ -57,6 +57,20 @@ export default function CaptionList({ screenshotId, refreshTrigger }) {
 
   if (isLoading) {
     return <div className="text-center py-4 text-gray-300">Loading captions...</div>
+  }
+
+  if (!session) {
+    return (
+      <div className="text-center p-4 bg-gray-800 rounded-lg">
+        <p className="text-gray-300 mb-4">Sign in to view and vote on captions!</p>
+        <button
+          onClick={() => signIn()}
+          className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+        >
+          Sign in to Participate
+        </button>
+      </div>
+    )
   }
 
   return (

@@ -1,8 +1,15 @@
 import { generateLightshotUrl, extractImageUrl } from '@/utils/lightshotExtractor';
 import { prisma } from "@/lib/prisma"
+import { getServerSession } from "next-auth"
+import authOptions from "@/lib/auth"
+
+const POINTS = {
+  VIEW: 1,
+};
 
 export async function GET() {
   try {
+    const session = await getServerSession(authOptions);
     let imageUrl = null;
     let lightshotUrl = null;
     let attempts = 0;
@@ -59,6 +66,22 @@ export async function GET() {
         },
       });
 
+      // Add points if user is logged in
+      if (session?.user) {
+        await prisma.$transaction([
+          prisma.viewHistory.create({
+            data: {
+              screenshot: { connect: { id: screenshot.id } },
+              user: { connect: { id: session.user.id } },
+            },
+          }),
+          prisma.user.update({
+            where: { id: session.user.id },
+            data: { points: { increment: POINTS.VIEW } },
+          }),
+        ]);
+      }
+
       return new Response(JSON.stringify({
         imageUrl: screenshot.url,
         success: true,
@@ -107,6 +130,22 @@ export async function GET() {
         lastShownAt: new Date()
       }
     });
+
+    // Add points if user is logged in
+    if (session?.user) {
+      await prisma.$transaction([
+        prisma.viewHistory.create({
+          data: {
+            screenshot: { connect: { id: randomScreenshot.id } },
+            user: { connect: { id: session.user.id } },
+          },
+        }),
+        prisma.user.update({
+          where: { id: session.user.id },
+          data: { points: { increment: POINTS.VIEW } },
+        }),
+      ]);
+    }
 
     return new Response(JSON.stringify({
       imageUrl: randomScreenshot.url,

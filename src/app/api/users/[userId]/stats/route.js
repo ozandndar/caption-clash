@@ -1,11 +1,12 @@
 import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import authOptions from "@/lib/auth"
+import { calculatePoints } from "@/utils/points"
 
 export async function GET(request, { params }) {
   try {
     const session = await getServerSession(authOptions)
-    const { userId } = params
+    const { userId } = await params
 
     if (!session?.user || session.user.id !== userId) {
       return new Response(JSON.stringify({ error: 'Unauthorized' }), {
@@ -17,6 +18,16 @@ export async function GET(request, { params }) {
     // Get total captions
     const totalCaptions = await prisma.caption.count({
       where: { authorId: userId },
+    })
+
+    // Get total views (screenshots seen)
+    const totalViews = await prisma.viewHistory.count({
+      where: { userId },
+    })
+
+    // Get total reactions left by user
+    const totalReactions = await prisma.reaction.count({
+      where: { userId },
     })
 
     // Get total likes received
@@ -47,13 +58,16 @@ export async function GET(request, { params }) {
 
     return new Response(JSON.stringify({
       totalCaptions,
+      totalViews,
+      totalReactions,
       totalLikesReceived: totalLikesReceived._sum.likeCount || 0,
-      dailyLikes,
-      weeklyLikes,
       points: {
-        total: (totalLikesReceived._sum.likeCount || 0) * 10 + totalCaptions * 5,
-        daily: dailyLikes * 10,
-        weekly: weeklyLikes * 10
+        total: calculatePoints({
+          likes: totalLikesReceived._sum.likeCount || 0,
+          captions: totalCaptions,
+          views: totalViews,
+          reactions: totalReactions,
+        })
       }
     }), {
       status: 200,

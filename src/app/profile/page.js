@@ -109,12 +109,12 @@ export default function ProfilePage() {
             <p className="text-xl font-bold">{userStats?.totalLikesReceived || 0}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4 text-center">
-            <h3 className="text-sm text-gray-400">Today's Likes</h3>
-            <p className="text-xl font-bold">{userStats?.dailyLikes || 0}</p>
+            <h3 className="text-sm text-gray-400">Screenshots Seen</h3>
+            <p className="text-xl font-bold">{userStats?.totalViews || 0}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4 text-center">
-            <h3 className="text-sm text-gray-400">Weekly Likes</h3>
-            <p className="text-xl font-bold">{userStats?.weeklyLikes || 0}</p>
+            <h3 className="text-sm text-gray-400">Reactions Left</h3>
+            <p className="text-xl font-bold">{userStats?.totalReactions || 0}</p>
           </div>
         </div>
 

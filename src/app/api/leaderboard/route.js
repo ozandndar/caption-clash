@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma"
+import { calculatePoints } from "@/utils/points"
 
 export async function GET(request) {
   try {
@@ -11,7 +12,7 @@ export async function GET(request) {
       ? new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
       : new Date(0) // For 'overall', use the beginning of time
 
-    const userStats = await prisma.user.findMany({
+    const users = await prisma.user.findMany({
       select: {
         id: true,
         name: true,
@@ -39,40 +40,63 @@ export async function GET(request) {
                   }
                 }
               }
+            },
+        viewHistory: {
+          ...(type !== 'overall' && {
+            where: {
+              viewedAt: { gte: timeFilter }
             }
+          }),
+          select: { id: true }
+        },
+        reactions: {
+          ...(type !== 'overall' && {
+            where: {
+              createdAt: { gte: timeFilter }
+            }
+          }),
+          select: { id: true }
+        },
       },
       where: type === 'overall' 
         ? {}
         : {
-            captions: {
-              some: {
-                createdAt: { gte: timeFilter }
-              }
-            }
+            OR: [
+              { captions: { some: { createdAt: { gte: timeFilter } } } },
+              { viewHistory: { some: { viewedAt: { gte: timeFilter } } } },
+              { reactions: { some: { createdAt: { gte: timeFilter } } } }
+            ]
           }
-    })
+    });
 
-    const leaderboard = userStats
-      .map(user => {
-        const periodLikes = user.captions.reduce((sum, caption) => 
-          sum + caption._count.likes, 0)
-        const captionsCount = user.captions.length
+    const leaderboard = users.map(user => {
+      const periodLikes = user.captions.reduce((sum, caption) => 
+        sum + caption._count.likes, 0)
+      const captionsCount = user.captions.length
+      const viewsCount = user.viewHistory?.length || 0
+      const reactionsCount = user.reactions?.length || 0
 
-        // Points calculation based on period-specific data
-        const points = (periodLikes * 10) + (captionsCount * 5)
-        
-        return {
-          userId: user.id,
-          name: user.name,
-          image: user.image,
-          points,
-          likesReceived: periodLikes,
-          captionsCount
-        }
+      const points = calculatePoints({
+        likes: periodLikes,
+        captions: captionsCount,
+        views: viewsCount,
+        reactions: reactionsCount,
       })
-      .filter(user => user.points > 0)
-      .sort((a, b) => b.points - a.points)
-      .slice(0, 10)
+
+      return {
+        userId: user.id,
+        name: user.name,
+        image: user.image,
+        points,
+        likesReceived: periodLikes,
+        captionsCount,
+        totalViews: viewsCount,
+        totalReactions: reactionsCount,
+      }
+    })
+    .filter(user => user.points > 0)
+    .sort((a, b) => b.points - a.points)
+    .slice(0, 10)
 
     return new Response(JSON.stringify(leaderboard), {
       status: 200,
