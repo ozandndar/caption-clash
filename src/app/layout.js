@@ -72,7 +72,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'YOUR_VERIFICATION_CODE',
+    google: 'I0ElEXsJBu72JA_XCsJLH-mUGYcK1K2G9-AM1DhjYeQ',
   },
   metadataBase: new URL('https://caption-clash.com'),
   applicationName: 'Caption Clash',
