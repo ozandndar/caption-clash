@@ -1,6 +1,6 @@
 const withPWA = require('next-pwa')({
   dest: 'public',
-  disable: process.env.NODE_ENV === 'development',
+  disable: false,
   register: true,
   skipWaiting: true,
 });
@@ -13,7 +13,6 @@ const nextConfig = {
       'via.placeholder.com',
       'i.imgur.com',
       'lh3.googleusercontent.com'
-      // Add any other domains you need
     ],
   },
 };

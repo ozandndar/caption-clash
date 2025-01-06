@@ -2,6 +2,7 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Providers } from "@/components/Providers"
+import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 
 export const metadata = {
   title: 'Caption Clash - Random Screenshot Caption Contest',
@@ -147,6 +148,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <Navbar />
           {children}
+          <PWAInstallPrompt />
         </Providers>
       </body>
     </html>
