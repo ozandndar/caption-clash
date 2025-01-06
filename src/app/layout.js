@@ -143,6 +143,24 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#1F2937" />
         <meta name="msapplication-TileImage" content="/icons/mstile-150x150.png" />
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* Google Analytics */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
       <body className="bg-gray-900 text-white min-h-screen">
         <Providers>
