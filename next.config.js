@@ -1,3 +1,6 @@
+const createNextIntlPlugin = require('next-intl/plugin');
+const withNextIntl = createNextIntlPlugin();
+
 const withPWA = require('next-pwa')({
   dest: 'public',
   disable: false,
@@ -17,4 +20,5 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig); 
+// First apply next-intl, then PWA
+module.exports = withPWA(withNextIntl(nextConfig));

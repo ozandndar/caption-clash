@@ -1,0 +1,173 @@
+{
+    "home": {
+      "title": "Rastgele Lightshot Ekran Görüntüleri",
+      "getAnother": "Başka Bir Görüntü Al",
+      "loading": "Yükleniyor...",
+      "error": "Görüntü yüklenemedi. Tekrar deneyin!",
+      "signInPrompt": {
+        "title": "Yorum eklemek ister misiniz?",
+        "description": "Yorum yarışmasına katılmak ve favorileriniz için oy vermek için giriş yapın!",
+        "button": "Katılmak için Giriş Yap"
+      },
+      "imageActions": {
+        "share": "Paylaş",
+        "report": "Bildir",
+        "copied": "Bağlantı kopyalandı!",
+        "reportSuccess": "Ekran görüntüsü başarıyla bildirildi"
+      },
+      "captionSection": {
+        "title": "Yorumlar",
+        "addYours": "Yorumunuzu ekleyin...",
+        "submit": "Gönder",
+        "viewAll": "Tüm Yorumları Gör",
+        "noCaptions": "Henüz yorum yok. İlk yorumu siz yapın!"
+      },
+      "imageSource": {
+        "fromDb": "Bu görüntü veritabanımızdan yüklendi",
+        "new": "Bu yeni bir görüntü"
+      }
+    },
+    "nav": {
+      "home": "Ana Sayfa",
+      "howToPlay": "Nasıl Oynanır",
+      "leaderboard": "Sıralama",
+      "profile": "Profil",
+      "signIn": "Giriş Yap",
+      "signOut": "Çıkış Yap"
+    },
+    "captions": {
+      "add": "Yorumunuzu ekleyin...",
+      "submit": "Gönder",
+      "submitting": "Gönderiliyor...",
+      "viewAll": "Tüm Yorumları Gör",
+      "none": "Henüz yorum yok. İlk yorumu siz yapın!",
+      "signInToAdd": "Yorum eklemek için giriş yapın"
+    },
+    "reactions": {
+      "funny": "Komik",
+      "shocked": "Şaşkın",
+      "dislike": "Beğenmedim",
+      "hot": "Harika",
+      "clever": "Zekice",
+      "wholesome": "Hoş",
+      "loading": "Tepkiler yükleniyor...",
+      "signInPrompt": "Tepki vermek için giriş yapın!",
+      "signIn": "Giriş Yap",
+      "signInToReact": "Tepki vermek için giriş yapın!",
+      "reactionDesc": {
+        "funny": "Bu çok komik!",
+        "shocked": "İnanamıyorum!",
+        "dislike": "Hoş değil",
+        "hot": "Çok iyi!",
+        "clever": "Zekice!",
+        "wholesome": "Günümü güzelleştirdi"
+      }
+    },
+    "profile": {
+      "title": "Profil",
+      "loading": "Profil yükleniyor...",
+      "signInRequired": "Profilinizi görüntülemek için giriş yapın",
+      "stats": {
+        "totalCaptions": "Toplam Yorum",
+        "totalLikes": "Toplam Beğeni",
+        "screenshotsSeen": "Görüntülenen Ekran Görüntüleri",
+        "reactionsGiven": "Verilen Tepkiler",
+        "points": {
+          "total": "Toplam Puan",
+          "weekly": "Bu Haftaki Puanlar",
+          "daily": "Bugünkü Puanlar"
+        }
+      },
+      "captions": {
+        "title": "Yorumlarınız",
+        "empty": "Henüz yorum yok",
+        "sort": {
+          "mostLiked": "En Çok Beğenilen",
+          "mostRecent": "En Yeni"
+        },
+        "imagePreview": {
+          "noImage": "Görüntü yok"
+        }
+      }
+    },
+    "leaderboard": {
+      "title": "Sıralama",
+      "joinPrompt": "Yarışmaya katılmak ister misiniz?",
+      "pointsInfo": {
+        "title": "Nasıl puan kazanılır:",
+        "view": "Ekran görüntüsü görüntüle",
+        "react": "Ekran görüntüsüne tepki ver",
+        "caption": "Yorum ekle",
+        "like": "Yorumlarına beğeni al"
+      },
+      "tabs": {
+        "overall": "Genel",
+        "weekly": "Bu Hafta",
+        "daily": "Bugün"
+      },
+      "stats": {
+        "views": "Görüntülenen",
+        "reactions": "Tepkiler",
+        "captions": "Yorumlar",
+        "likes": "Beğeniler",
+        "points": "puan"
+      },
+      "empty": "Henüz kayıt yok. İlk katılan siz olun!",
+      "loading": "Sıralama yükleniyor..."
+    },
+    "howToPlay": {
+      "title": "Screenshot Roulette Nasıl Oynanır",
+      "description": "Her tıklama bir kumar - dünyanın dört bir yanından rastgele ekran görüntülerini keşfedin ve diğerleriyle yarışın!",
+      "game": {
+        "title": "Oyun",
+        "description": "Screenshot Roulette, insanların dünya çapında aldığı rastgele ekran görüntülerinin geniş bir koleksiyonuna erişmenizi sağlar. Her tıklama yeni bir gizemi ortaya çıkarır - özel konuşmalardan gizli belgelere, komik anlardan şaşırtıcı keşiflere kadar her şeyi bulabilirsiniz."
+      },
+      "scoring": {
+        "title": "Puan Kazanma",
+        "description": "Çeşitli etkileşimlerle sıralamada yükselin:",
+        "points": {
+          "view": "Yeni bir ekran görüntüsü görüntüle",
+          "react": "Bir ekran görüntüsüne tepki ver (komik, şaşkın, vb.)",
+          "caption": "Bir ekran görüntüsüne esprili bir yorum ekle",
+          "like": "Yorumunuza beğeni al"
+        }
+      },
+      "tips": {
+        "title": "İpuçları",
+        "tip1": "Tıklamaya devam edin - bir sonraki keşfinizin ne olacağını asla bilemezsiniz!",
+        "tip2": "Bulduklarınıza hızlıca tepki verin - duygularınızı paylaşın",
+        "tip3": "Yorumlarınızda yaratıcı olun - daha komik yorumlar daha çok beğeni alır",
+        "tip4": "Sıralamayı günlük kontrol edin - her gün yeni şampiyonlar taçlandırılır"
+      },
+      "callToAction": "Sırları keşfetmeye hazır mısınız? Avın bir parçası olun ve ne bulacağınızı görün! 🎯"
+    },
+    "loading": {
+      "findingScreenshot": "Rastgele bir ekran görüntüsü bulunuyor...",
+      "takingTime": "Bu birkaç saniye sürebilir"
+    },
+    "pwaInstall": {
+      "title": "Caption Clash'i Yükle",
+      "description": {
+        "ios": "Yüklemek için paylaş butonuna tıklayın ve \"Ana Ekrana Ekle\"yi seçin",
+        "desktop": "Tarayıcınızın adres çubuğundaki yükleme simgesine bakın",
+        "android": "Daha iyi bir deneyim ve hızlı erişim için uygulamamızı yükleyin!"
+      },
+      "install": "Uygulamayı Yükle",
+      "later": "Belki Daha Sonra"
+    },
+    "welcome": {
+      "title": "Screenshot Roulette'e Hazır mısınız?",
+      "description": "Her tıklama, dünyanın herhangi bir yerindeki birinin bilgisayarından rastgele bir ekran görüntüsünü ortaya çıkarır.",
+      "whatWillYouFind": "Ne keşfedeceksiniz?",
+      "hint": "Özel mesajlar? Gizli belgeler? Komik konuşmalar? Öğrenmenin tek bir yolu var!",
+      "startButton": "Ava Başla! 🎯"
+    },
+    "common": {
+      "appName": "Caption Clash",
+      "close": "Kapat",
+      "screenshot": {
+        "alt": "Rastgele Lightshot Ekran Görüntüsü"
+      },
+      "bullet": "•"
+    }
+  }

@@ -1,0 +1,173 @@
+{
+  "home": {
+    "title": "Capturas de Pantalla Aleatorias de Lightshot",
+    "getAnother": "Obtener Otra Captura",
+    "loading": "Cargando...",
+    "error": "No se pudo cargar la imagen. ¡Inténtalo de nuevo!",
+    "signInPrompt": {
+      "title": "¿Quieres añadir un título?",
+      "description": "¡Inicia sesión para participar en el concurso de títulos y votar por tus favoritos!",
+      "button": "Iniciar sesión para participar"
+    },
+    "imageActions": {
+      "share": "Compartir",
+      "report": "Reportar",
+      "copied": "¡Enlace copiado!",
+      "reportSuccess": "Captura de pantalla reportada exitosamente"
+    },
+    "captionSection": {
+      "title": "Títulos",
+      "addYours": "Añade tu título...",
+      "submit": "Enviar",
+      "viewAll": "Ver Todos los Títulos",
+      "noCaptions": "Aún no hay títulos. ¡Sé el primero!"
+    },
+    "imageSource": {
+      "fromDb": "Esta imagen se cargó desde nuestra base de datos",
+      "new": "Esta es una nueva imagen"
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "howToPlay": "Cómo Jugar",
+    "leaderboard": "Clasificación",
+    "profile": "Perfil",
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión"
+  },
+  "captions": {
+    "add": "Añade tu título...",
+    "submit": "Enviar",
+    "submitting": "Enviando...",
+    "viewAll": "Ver Todos los Títulos",
+    "none": "Aún no hay títulos. ¡Sé el primero!",
+    "signInToAdd": "Inicia sesión para añadir títulos"
+  },
+  "reactions": {
+    "funny": "Gracioso",
+    "shocked": "Sorprendido",
+    "dislike": "No me gusta",
+    "hot": "Increíble",
+    "clever": "Ingenioso",
+    "wholesome": "Adorable",
+    "loading": "Cargando reacciones...",
+    "signInPrompt": "¡Inicia sesión para reaccionar!",
+    "signIn": "Iniciar sesión",
+    "signInToReact": "¡Inicia sesión para reaccionar!",
+    "reactionDesc": {
+      "funny": "¡Esto es hilarante!",
+      "shocked": "¡No puedo creerlo!",
+      "dislike": "No está bien",
+      "hot": "¡Está que arde!",
+      "clever": "Momento brillante",
+      "wholesome": "Esto me alegró el día"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "loading": "Cargando perfil...",
+    "signInRequired": "Por favor, inicia sesión para ver tu perfil",
+    "stats": {
+      "totalCaptions": "Total de Títulos",
+      "totalLikes": "Me gusta Totales",
+      "screenshotsSeen": "Capturas Vistas",
+      "reactionsGiven": "Reacciones Dadas",
+      "points": {
+        "total": "Puntos Totales",
+        "weekly": "Puntos Esta Semana",
+        "daily": "Puntos Hoy"
+      }
+    },
+    "captions": {
+      "title": "Tus Títulos",
+      "empty": "Aún no hay títulos",
+      "sort": {
+        "mostLiked": "Más Gustados",
+        "mostRecent": "Más Recientes"
+      },
+      "imagePreview": {
+        "noImage": "Sin imagen"
+      }
+    }
+  },
+  "leaderboard": {
+    "title": "Clasificación",
+    "joinPrompt": "¿Quieres unirte a la competencia?",
+    "pointsInfo": {
+      "title": "Cómo ganar puntos:",
+      "view": "Ver una captura",
+      "react": "Reaccionar a una captura",
+      "caption": "Añadir un título",
+      "like": "Recibir me gusta en tus títulos"
+    },
+    "tabs": {
+      "overall": "General",
+      "weekly": "Esta Semana",
+      "daily": "Hoy"
+    },
+    "stats": {
+      "views": "Capturas Vistas",
+      "reactions": "Reacciones Dadas",
+      "captions": "Títulos",
+      "likes": "Me gusta Recibidos",
+      "points": "pts"
+    },
+    "empty": "Aún no hay entradas. ¡Sé el primero en participar!",
+    "loading": "Cargando clasificación..."
+  },
+  "howToPlay": {
+    "title": "Cómo Jugar a la Ruleta de Capturas",
+    "description": "Cada clic es una apuesta - ¡descubre capturas aleatorias de todo el mundo y compite con otros!",
+    "game": {
+      "title": "El Juego",
+      "description": "La Ruleta de Capturas te da acceso a una vasta colección de capturas aleatorias tomadas por personas de todo el mundo. Cada clic revela un nuevo misterio - puedes encontrar desde conversaciones privadas hasta documentos secretos, desde momentos graciosos hasta descubrimientos sorprendentes."
+    },
+    "scoring": {
+      "title": "Ganar Puntos",
+      "description": "Sube en la clasificación a través de varias interacciones:",
+      "points": {
+        "view": "Ver una nueva captura",
+        "react": "Reaccionar a una captura (gracioso, sorprendido, etc.)",
+        "caption": "Añadir un título ingenioso a una captura",
+        "like": "Recibir un me gusta en tu título"
+      }
+    },
+    "tips": {
+      "title": "Consejos Pro",
+      "tip1": "Sigue haciendo clic - ¡nunca sabes qué descubrirás!",
+      "tip2": "Reacciona rápidamente a lo que encuentres - comparte tus emociones",
+      "tip3": "Sé creativo con tus títulos - los títulos más graciosos reciben más me gusta",
+      "tip4": "Revisa la clasificación diariamente - nuevos campeones son coronados cada día"
+    },
+    "callToAction": "¿Listo para empezar a descubrir secretos? ¡Únete a la búsqueda y mira qué encuentras! 🎯"
+  },
+  "loading": {
+    "findingScreenshot": "Buscando una captura aleatoria...",
+    "takingTime": "Esto puede tomar unos segundos"
+  },
+  "pwaInstall": {
+    "title": "Instalar Caption Clash",
+    "description": {
+      "ios": "Para instalar, toca el botón compartir y elige \"Añadir a Pantalla de Inicio\"",
+      "desktop": "Busca el icono de instalación en la barra de direcciones de tu navegador",
+      "android": "¡Instala nuestra app para una mejor experiencia y acceso rápido!"
+    },
+    "install": "Instalar App",
+    "later": "Quizás Después"
+  },
+  "welcome": {
+    "title": "¿Listo para la Ruleta de Capturas?",
+    "description": "Cada clic revela una captura aleatoria del ordenador de alguien en algún lugar del mundo.",
+    "whatWillYouFind": "¿Qué descubrirás?",
+    "hint": "¿Mensajes privados? ¿Documentos secretos? ¿Conversaciones graciosas? ¡Solo hay una forma de averiguarlo!",
+    "startButton": "¡Comienza la Búsqueda! 🎯"
+  },
+  "common": {
+    "appName": "Caption Clash",
+    "close": "Cerrar",
+    "screenshot": {
+      "alt": "Captura de Pantalla Aleatoria de Lightshot"
+    },
+    "bullet": "•"
+  }
+} 

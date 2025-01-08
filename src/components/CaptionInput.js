@@ -1,12 +1,14 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
+import { useTranslations } from 'next-intl'
 
 export default function CaptionInput({ screenshotId, onCaptionAdded }) {
   const [text, setText] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const { data: session } = useSession()
+  const t = useTranslations('captions')
 
   // Check if user has already submitted a caption for this screenshot
   useEffect(() => {
@@ -67,7 +69,7 @@ export default function CaptionInput({ screenshotId, onCaptionAdded }) {
   if (hasSubmitted) {
     return (
       <div className="text-center p-4 bg-gray-800 rounded-lg">
-        <p className="text-gray-300">You've already submitted a caption for this screenshot!</p>
+        <p className="text-gray-300">{t('alreadySubmitted')}</p>
       </div>
     )
   }
@@ -79,7 +81,7 @@ export default function CaptionInput({ screenshotId, onCaptionAdded }) {
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="What's your caption for this screenshot?"
+          placeholder={t('add')}
           className="flex-1 px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
           disabled={isSubmitting || hasSubmitted}
         />
@@ -88,7 +90,7 @@ export default function CaptionInput({ screenshotId, onCaptionAdded }) {
           disabled={isSubmitting || !text.trim() || hasSubmitted}
           className="w-full sm:w-auto px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? 'Adding...' : 'Submit'}
+          {isSubmitting ? t('submitting') : t('submit')}
         </button>
       </div>
     </form>

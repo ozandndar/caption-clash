@@ -2,11 +2,12 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useSession, signIn } from 'next-auth/react'
+import { useTranslations } from 'next-intl'
 
 const TABS = [
-  { id: 'overall', label: 'Overall' },
-  { id: 'weekly', label: 'This Week' },
-  { id: 'daily', label: 'Today' },
+  { id: 'overall', label: 'tabs.overall' },
+  { id: 'weekly', label: 'tabs.weekly' },
+  { id: 'daily', label: 'tabs.daily' },
 ]
 
 const MEDALS = {
@@ -20,6 +21,7 @@ export default function LeaderboardPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('overall')
   const { data: session } = useSession()
+  const t = useTranslations('leaderboard')
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -42,7 +44,7 @@ export default function LeaderboardPage() {
     return (
       <div className="min-h-screen bg-gray-900 text-white p-8">
         <div className="max-w-4xl mx-auto text-center">
-          Loading leaderboard...
+          {t('loading')}
         </div>
       </div>
     )
@@ -51,7 +53,7 @@ export default function LeaderboardPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Leaderboard</h1>
+        <h1 className="text-3xl font-bold mb-8">{t('title')}</h1>
 
         {!session && (
           <div className="bg-blue-900/30 border border-blue-500/30 rounded-lg p-4 mb-8">
@@ -62,21 +64,14 @@ export default function LeaderboardPage() {
                 </svg>
               </div>
               <div className="text-sm text-gray-300">
-                <p className="font-medium text-blue-400">Want to join the competition?</p>
-                <p>Sign in to start earning points! Here's how you can climb the leaderboard:</p>
+                <p className="font-medium text-blue-400">{t('joinPrompt')}</p>
+                <p>{t('pointsInfo.title')}</p>
                 <ul className="mt-2 space-y-1 list-disc list-inside text-gray-400">
-                  <li>View a screenshot: <span className="text-green-400">1 point</span></li>
-                  <li>React to a screenshot: <span className="text-green-400">3 points</span></li>
-                  <li>Add a caption: <span className="text-green-400">10 points</span></li>
-                  <li>Get likes on your captions: <span className="text-green-400">30 points each</span></li>
+                  <li>{t('pointsInfo.view')}: <span className="text-green-400">1 {t('stats.points')}</span></li>
+                  <li>{t('pointsInfo.react')}: <span className="text-green-400">3 {t('stats.points')}</span></li>
+                  <li>{t('pointsInfo.caption')}: <span className="text-green-400">10 {t('stats.points')}</span></li>
+                  <li>{t('pointsInfo.like')}: <span className="text-green-400">30 {t('stats.points')}</span></li>
                 </ul>
-                <p className="mt-2 text-xs text-gray-500">The more you interact, the higher you climb! 🚀</p>
-                <button
-                  onClick={() => signIn()}
-                  className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600"
-                >
-                  Sign in to Participate
-                </button>
               </div>
             </div>
           </div>
@@ -94,7 +89,7 @@ export default function LeaderboardPage() {
                   : 'text-gray-400 hover:text-white hover:bg-gray-700'
                 }`}
             >
-              {tab.label}
+              {t(tab.label)}
             </button>
           ))}
         </div>
@@ -149,19 +144,19 @@ export default function LeaderboardPage() {
               {/* Stats */}
               <div className="flex items-center justify-between md:justify-end mt-2 md:mt-0 w-full md:w-auto">
                 <div className="flex items-center space-x-4 md:space-x-6">
-                  <div className="flex items-center space-x-1" title="Screenshots Seen">
+                  <div className="flex items-center space-x-1" title={t('stats.views')}>
                     <span className="text-gray-400">👀</span>
                     <span>{user.totalViews || 0}</span>
                   </div>
-                  <div className="flex items-center space-x-1" title="Reactions Left">
+                  <div className="flex items-center space-x-1" title={t('stats.reactions')}>
                     <span className="text-gray-400">💭</span>
                     <span>{user.totalReactions || 0}</span>
                   </div>
-                  <div className="flex items-center space-x-1" title="Captions">
+                  <div className="flex items-center space-x-1" title={t('stats.captions')}>
                     <span className="text-gray-400">✍️</span>
                     <span>{user.captionsCount || 0}</span>
                   </div>
-                  <div className="flex items-center space-x-1" title="Likes Received">
+                  <div className="flex items-center space-x-1" title={t('stats.likes')}>
                     <span className="text-gray-400">❤️</span>
                     <span>{user.likesReceived || 0}</span>
                   </div>
@@ -176,7 +171,7 @@ export default function LeaderboardPage() {
 
           {leaderboard.length === 0 && (
             <div className="text-center py-8 text-gray-400">
-              No scores yet for this time period
+              {t('empty')}
             </div>
           )}
         </div>

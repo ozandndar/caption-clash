@@ -4,6 +4,9 @@ import { Navbar } from '@/components/Navbar'
 import { Providers } from "@/components/Providers"
 import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 import { Analytics } from '@vercel/analytics/react'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages } from 'next-intl/server'
+import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata = {
   title: 'Caption Clash - Random Screenshot Caption Contest',
@@ -119,9 +122,12 @@ const jsonLd = {
   ]
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={GeistMono.className}>
+    <html lang={locale} className={GeistMono.className}>
       <head>
         <meta name='application-name' content='Caption Clash' />
         <meta name='apple-mobile-web-app-capable' content='yes' />
@@ -165,10 +171,14 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-gray-900 text-white min-h-screen">
         <Providers>
-          <Navbar />
-          {children}
-          <PWAInstallPrompt />
-          <Analytics />
+          <LanguageProvider initialLocale={locale}>
+            <NextIntlClientProvider messages={messages}>
+              <Navbar />
+              {children}
+              <PWAInstallPrompt />
+              <Analytics />
+            </NextIntlClientProvider>
+          </LanguageProvider>
         </Providers>
       </body>
     </html>

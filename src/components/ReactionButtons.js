@@ -1,14 +1,15 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useSession, signIn } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 
 const REACTIONS = {
-  FUNNY: { emoji: '😂', label: 'Funny', description: 'This is hilarious!' },
-  SHOCKED: { emoji: '😱', label: 'Shocked', description: "I can't believe it!" },
-  DISLIKE: { emoji: '👎', label: 'Dislike', description: 'Not cool' },
-  HOT: { emoji: '🔥', label: 'Hot', description: "That's fire!" },
-  CLEVER: { emoji: '🧠', label: 'Clever', description: 'Big brain moment' },
-  WHOLESOME: { emoji: '🥰', label: 'Wholesome', description: 'This made my day' },
+  FUNNY: { emoji: '😂', label: 'funny', description: 'reactionDesc.funny' },
+  SHOCKED: { emoji: '😱', label: 'shocked', description: 'reactionDesc.shocked' },
+  DISLIKE: { emoji: '👎', label: 'dislike', description: 'reactionDesc.dislike' },
+  HOT: { emoji: '🔥', label: 'hot', description: 'reactionDesc.hot' },
+  CLEVER: { emoji: '🧠', label: 'clever', description: 'reactionDesc.clever' },
+  WHOLESOME: { emoji: '🥰', label: 'wholesome', description: 'reactionDesc.wholesome' },
 };
 
 export default function ReactionButtons({ screenshotId }) {
@@ -18,6 +19,7 @@ export default function ReactionButtons({ screenshotId }) {
   const [showSignInPrompt, setShowSignInPrompt] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const t = useTranslations('reactions');
 
   useEffect(() => {
     fetchReactions();
@@ -81,19 +83,19 @@ export default function ReactionButtons({ screenshotId }) {
     }
   };
 
-  if (isLoading) return <div>Loading reactions...</div>;
+  if (isLoading) return <div>{t('loading')}</div>;
 
   return (
     <div className="relative">
       {showSignInPrompt && (
         <div className="absolute -top-12 left-0 right-0 text-center animate-fade-in-down">
           <div className="inline-block bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">
-            <span className="mr-2">Sign in to react!</span>
+            <span className="mr-2">{t('signInPrompt')}</span>
             <button
               onClick={() => signIn()}
               className="underline font-medium hover:text-blue-100"
             >
-              Sign in
+              {t('signIn')}
             </button>
           </div>
         </div>
@@ -110,7 +112,7 @@ export default function ReactionButtons({ screenshotId }) {
           <button
             key={type}
             onClick={() => handleReaction(type)}
-            title={session ? description : 'Sign in to react!'}
+            title={session ? t(description) : t('signInToReact')}
             disabled={session && userReactions.size > 0 && !userReactions.has(type)}
             className={`flex flex-col items-center justify-center p-3 rounded-lg text-sm transition-all
               w-full h-full min-h-[90px] ${
@@ -124,7 +126,7 @@ export default function ReactionButtons({ screenshotId }) {
               }`}
           >
             <span className="text-3xl mb-2">{emoji}</span>
-            <span className="text-xs font-medium">{label}</span>
+            <span className="text-xs font-medium">{t(label)}</span>
             <span className="text-xs opacity-75">{reactions[type] || 0}</span>
           </button>
         ))}

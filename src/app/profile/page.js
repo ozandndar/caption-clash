@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import ImageDialog from '@/components/ImageDialog'
+import { useTranslations } from 'next-intl'
 
 export default function ProfilePage() {
   const { data: session, status } = useSession()
@@ -10,19 +11,18 @@ export default function ProfilePage() {
   const [userCaptions, setUserCaptions] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [selectedImage, setSelectedImage] = useState(null)
-  const [sortBy, setSortBy] = useState('likes') // Default to most liked
+  const [sortBy, setSortBy] = useState('likes')
+  const t = useTranslations('profile')
 
   useEffect(() => {
     const fetchUserData = async () => {
       if (!session?.user) return
 
       try {
-        // Fetch user stats
         const statsResponse = await fetch(`/api/users/${session.user.id}/stats`)
         const stats = await statsResponse.json()
         setUserStats(stats)
 
-        // Fetch user captions with sort parameter
         const captionsResponse = await fetch(`/api/users/${session.user.id}/captions?sortBy=${sortBy}`)
         const captions = await captionsResponse.json()
         setUserCaptions(captions)
@@ -34,13 +34,13 @@ export default function ProfilePage() {
     }
 
     fetchUserData()
-  }, [session, sortBy]) // Add sortBy to dependencies
+  }, [session, sortBy])
 
   if (status === "loading" || isLoading) {
     return (
       <div className="min-h-screen bg-gray-900 text-white p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center py-4 text-gray-300">Loading profile...</div>
+        <div className="max-w-4xl mx-auto text-center">
+          {t('loading')}
         </div>
       </div>
     )
@@ -50,7 +50,9 @@ export default function ProfilePage() {
     return (
       <div className="min-h-screen bg-gray-900 text-white p-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center py-4 text-gray-300">Please sign in to view your profile</div>
+          <div className="text-center py-4 text-gray-300">
+            {t('signInRequired')}
+          </div>
         </div>
       </div>
     )
@@ -79,19 +81,19 @@ export default function ProfilePage() {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div className="bg-gray-800 rounded-lg p-6 text-center">
-            <h3 className="text-lg text-gray-400">Total Points</h3>
+            <h3 className="text-lg text-gray-400">{t('stats.points.total')}</h3>
             <p className="text-3xl font-bold text-yellow-500">
               {userStats?.points?.total || 0}
             </p>
           </div>
           <div className="bg-gray-800 rounded-lg p-6 text-center">
-            <h3 className="text-lg text-gray-400">Points This Week</h3>
+            <h3 className="text-lg text-gray-400">{t('stats.points.weekly')}</h3>
             <p className="text-3xl font-bold text-blue-500">
               {userStats?.points?.weekly || 0}
             </p>
           </div>
           <div className="bg-gray-800 rounded-lg p-6 text-center">
-            <h3 className="text-lg text-gray-400">Points Today</h3>
+            <h3 className="text-lg text-gray-400">{t('stats.points.daily')}</h3>
             <p className="text-3xl font-bold text-green-500">
               {userStats?.points?.daily || 0}
             </p>
@@ -101,45 +103,44 @@ export default function ProfilePage() {
         {/* Activity Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-gray-800 rounded-lg p-4 text-center">
-            <h3 className="text-sm text-gray-400">Total Captions</h3>
+            <h3 className="text-sm text-gray-400">{t('stats.totalCaptions')}</h3>
             <p className="text-xl font-bold">{userStats?.totalCaptions || 0}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4 text-center">
-            <h3 className="text-sm text-gray-400">Total Likes</h3>
+            <h3 className="text-sm text-gray-400">{t('stats.totalLikes')}</h3>
             <p className="text-xl font-bold">{userStats?.totalLikesReceived || 0}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4 text-center">
-            <h3 className="text-sm text-gray-400">Screenshots Seen</h3>
+            <h3 className="text-sm text-gray-400">{t('stats.screenshotsSeen')}</h3>
             <p className="text-xl font-bold">{userStats?.totalViews || 0}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4 text-center">
-            <h3 className="text-sm text-gray-400">Reactions Left</h3>
+            <h3 className="text-sm text-gray-400">{t('stats.reactionsGiven')}</h3>
             <p className="text-xl font-bold">{userStats?.totalReactions || 0}</p>
           </div>
         </div>
 
-        {/* Recent Captions */}
+        {/* Captions Section */}
         <div className="bg-gray-800 rounded-lg p-6">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold">Your Captions</h2>
+            <h2 className="text-xl font-bold">{t('captions.title')}</h2>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
               className="bg-gray-700 text-gray-100 px-3 py-1 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="likes">Most Liked</option>
-              <option value="createdAt">Most Recent</option>
+              <option value="likes">{t('captions.sort.mostLiked')}</option>
+              <option value="createdAt">{t('captions.sort.mostRecent')}</option>
             </select>
           </div>
 
           {userCaptions.length === 0 ? (
-            <p className="text-gray-400 text-center py-4">No captions yet</p>
+            <p className="text-gray-400 text-center py-4">{t('captions.empty')}</p>
           ) : (
             <div className="space-y-4">
               {userCaptions.map((caption) => (
                 <div key={caption.id} className="bg-gray-700 rounded-lg p-4">
                   <div className="flex gap-4">
-                    {/* Screenshot thumbnail */}
                     <div className="flex-shrink-0">
                       <div 
                         className="relative w-24 h-16 rounded-lg overflow-hidden bg-gray-800 cursor-pointer transition-transform hover:scale-105"
@@ -154,13 +155,12 @@ export default function ProfilePage() {
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-gray-600">
-                            No image
+                            {t('captions.imagePreview.noImage')}
                           </div>
                         )}
                       </div>
                     </div>
 
-                    {/* Caption content */}
                     <div className="flex-1">
                       <p className="text-gray-100 mb-2">{caption.text}</p>
                       <div className="flex items-center gap-4 text-sm text-gray-400">
@@ -179,12 +179,11 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      {/* Image Dialog */}
       <ImageDialog
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
         imageUrl={selectedImage}
       />
     </div>
-  )
+  );
 } 

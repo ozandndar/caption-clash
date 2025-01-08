@@ -1,8 +1,11 @@
 "use client"
 import { Fragment } from 'react'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 export default function ImageDialog({ isOpen, onClose, imageUrl }) {
+  const t = useTranslations()
+  
   if (!isOpen) return null
 
   return (
@@ -15,7 +18,7 @@ export default function ImageDialog({ isOpen, onClose, imageUrl }) {
           onClick={onClose}
           className="absolute -top-10 right-0 text-white hover:text-gray-300"
         >
-          Close
+          {t('common.close')}
         </button>
         <div className="relative w-full h-full rounded-lg overflow-hidden bg-gray-800">
           <Image

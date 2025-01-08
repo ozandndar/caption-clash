@@ -1,0 +1,173 @@
+{
+  "home": {
+    "title": "Captures d'écran aléatoires Lightshot",
+    "getAnother": "Obtenir une autre capture",
+    "loading": "Chargement...",
+    "error": "Impossible de charger l'image. Réessayez !",
+    "signInPrompt": {
+      "title": "Envie d'ajouter une légende ?",
+      "description": "Connectez-vous pour participer au concours de légendes et voter pour vos préférées !",
+      "button": "Se connecter pour participer"
+    },
+    "imageActions": {
+      "share": "Partager",
+      "report": "Signaler",
+      "copied": "Lien copié !",
+      "reportSuccess": "Capture d'écran signalée avec succès"
+    },
+    "captionSection": {
+      "title": "Légendes",
+      "addYours": "Ajoutez votre légende...",
+      "submit": "Envoyer",
+      "viewAll": "Voir toutes les légendes",
+      "noCaptions": "Pas encore de légendes. Soyez le premier !"
+    },
+    "imageSource": {
+      "fromDb": "Cette image a été chargée depuis notre base de données",
+      "new": "C'est une nouvelle image"
+    }
+  },
+  "nav": {
+    "home": "Accueil",
+    "howToPlay": "Comment jouer",
+    "leaderboard": "Classement",
+    "profile": "Profil",
+    "signIn": "Se connecter",
+    "signOut": "Se déconnecter"
+  },
+  "captions": {
+    "add": "Ajoutez votre légende...",
+    "submit": "Envoyer",
+    "submitting": "Envoi en cours...",
+    "viewAll": "Voir toutes les légendes",
+    "none": "Pas encore de légendes. Soyez le premier !",
+    "signInToAdd": "Connectez-vous pour ajouter des légendes"
+  },
+  "reactions": {
+    "funny": "Drôle",
+    "shocked": "Choqué",
+    "dislike": "Je n'aime pas",
+    "hot": "Top",
+    "clever": "Intelligent",
+    "wholesome": "Adorable",
+    "loading": "Chargement des réactions...",
+    "signInPrompt": "Connectez-vous pour réagir !",
+    "signIn": "Se connecter",
+    "signInToReact": "Connectez-vous pour réagir !",
+    "reactionDesc": {
+      "funny": "C'est hilarant !",
+      "shocked": "Je n'en reviens pas !",
+      "dislike": "Pas cool",
+      "hot": "C'est du feu !",
+      "clever": "Bien joué !",
+      "wholesome": "Ça fait ma journée"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "loading": "Chargement du profil...",
+    "signInRequired": "Veuillez vous connecter pour voir votre profil",
+    "stats": {
+      "totalCaptions": "Total des légendes",
+      "totalLikes": "Total des j'aime",
+      "screenshotsSeen": "Captures vues",
+      "reactionsGiven": "Réactions données",
+      "points": {
+        "total": "Points totaux",
+        "weekly": "Points cette semaine",
+        "daily": "Points aujourd'hui"
+      }
+    },
+    "captions": {
+      "title": "Vos légendes",
+      "empty": "Pas encore de légendes",
+      "sort": {
+        "mostLiked": "Les plus aimées",
+        "mostRecent": "Plus récentes"
+      },
+      "imagePreview": {
+        "noImage": "Pas d'image"
+      }
+    }
+  },
+  "leaderboard": {
+    "title": "Classement",
+    "joinPrompt": "Envie de rejoindre la compétition ?",
+    "pointsInfo": {
+      "title": "Comment gagner des points :",
+      "view": "Voir une capture",
+      "react": "Réagir à une capture",
+      "caption": "Ajouter une légende",
+      "like": "Obtenir des j'aime sur vos légendes"
+    },
+    "tabs": {
+      "overall": "Global",
+      "weekly": "Cette semaine",
+      "daily": "Aujourd'hui"
+    },
+    "stats": {
+      "views": "Vues",
+      "reactions": "Réactions",
+      "captions": "Légendes",
+      "likes": "J'aime reçus",
+      "points": "pts"
+    },
+    "empty": "Pas encore d'entrées. Soyez le premier à participer !",
+    "loading": "Chargement du classement..."
+  },
+  "howToPlay": {
+    "title": "Comment jouer à la Roulette de Captures",
+    "description": "Chaque clic est un pari - découvrez des captures d'écran aléatoires du monde entier et rivalisez avec les autres !",
+    "game": {
+      "title": "Le Jeu",
+      "description": "La Roulette de Captures vous donne accès à une vaste collection de captures d'écran aléatoires prises par des gens du monde entier. Chaque clic révèle un nouveau mystère - vous pourriez trouver n'importe quoi : des conversations privées aux documents secrets, des moments drôles aux découvertes surprenantes."
+    },
+    "scoring": {
+      "title": "Gagner des points",
+      "description": "Montez dans le classement grâce à diverses interactions :",
+      "points": {
+        "view": "Voir une nouvelle capture",
+        "react": "Réagir à une capture (drôle, choqué, etc.)",
+        "caption": "Ajouter une légende spirituelle à une capture",
+        "like": "Obtenir un j'aime sur votre légende"
+      }
+    },
+    "tips": {
+      "title": "Conseils pro",
+      "tip1": "Continuez à cliquer - on ne sait jamais ce qu'on va découvrir !",
+      "tip2": "Réagissez rapidement à vos découvertes - partagez vos émotions",
+      "tip3": "Soyez créatif avec vos légendes - les plus drôles obtiennent plus de j'aime",
+      "tip4": "Vérifiez le classement quotidiennement - de nouveaux champions sont couronnés chaque jour"
+    },
+    "callToAction": "Prêt à commencer à découvrir des secrets ? Rejoignez la chasse et voyez ce que vous trouverez ! 🎯"
+  },
+  "loading": {
+    "findingScreenshot": "Recherche d'une capture aléatoire...",
+    "takingTime": "Cela peut prendre quelques secondes"
+  },
+  "pwaInstall": {
+    "title": "Installer Caption Clash",
+    "description": {
+      "ios": "Pour installer, appuyez sur le bouton partager et choisissez \"Ajouter à l'écran d'accueil\"",
+      "desktop": "Cherchez l'icône d'installation dans la barre d'adresse de votre navigateur",
+      "android": "Installez notre application pour une meilleure expérience et un accès rapide !"
+    },
+    "install": "Installer l'application",
+    "later": "Plus tard"
+  },
+  "welcome": {
+    "title": "Prêt pour la Roulette de Captures ?",
+    "description": "Chaque clic révèle une capture d'écran aléatoire de l'ordinateur de quelqu'un quelque part dans le monde.",
+    "whatWillYouFind": "Que découvrirez-vous ?",
+    "hint": "Messages privés ? Documents secrets ? Conversations drôles ? Il n'y a qu'une seule façon de le savoir !",
+    "startButton": "Commencer la chasse ! 🎯"
+  },
+  "common": {
+    "appName": "Caption Clash",
+    "close": "Fermer",
+    "screenshot": {
+      "alt": "Capture d'écran aléatoire Lightshot"
+    },
+    "bullet": "•"
+  }
+} 

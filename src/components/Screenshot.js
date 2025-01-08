@@ -1,12 +1,14 @@
 "use client"
 import { useState, useEffect } from 'react';
 import Loading from '@/app/loading';
+import { useTranslations } from 'next-intl';
 
 export default function Screenshot({ onImageLoad }) {
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isFromDb, setIsFromDb] = useState(false);
+  const t = useTranslations('');
 
   const fetchRandomImage = async (signal) => {
     try {
@@ -60,7 +62,7 @@ export default function Screenshot({ onImageLoad }) {
           onClick={handleGetAnotherClick}
           className="px-20 py-5 bg-gray-700 text-white rounded hover:bg-gray-700 transition-colors border border-gray-700"
         >
-          Get Another Screenshot
+          {t('home.getAnother')}
         </button>
       )}
       
@@ -68,13 +70,13 @@ export default function Screenshot({ onImageLoad }) {
         <Loading />
       ) : (
         <>
-          {error && <div className="text-red-500">{error}</div>}
+          {error && <div className="text-red-500">{t('error')}</div>}
           {imageUrl && (
             <>
               <div className="relative w-full max-w-2xl">
                 <img
                   src={getProxiedImageUrl(imageUrl)}
-                  alt="Random Lightshot Screenshot"
+                  alt={t('common.screenshot.alt')}
                   className="w-full h-auto rounded-lg shadow-lg"
                   onError={(e) => {
                     console.error('Image load error:', e);
@@ -83,7 +85,7 @@ export default function Screenshot({ onImageLoad }) {
                 />
               </div>
               <div className="text-sm text-gray-500">
-                {isFromDb ? 'This image was loaded from our database' : 'This is a new image'}
+                {isFromDb ? t('home.imageSource.fromDb') : t('home.imageSource.new')}
               </div>
             </>
           )}

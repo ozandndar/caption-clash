@@ -1,6 +1,7 @@
 'use client';
 import { useSession, signIn } from 'next-auth/react';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import Screenshot from '@/components/Screenshot';
 import CaptionInput from '@/components/CaptionInput';
 import CaptionList from '@/components/CaptionList';
@@ -13,6 +14,7 @@ export default function Home() {
   const [currentScreenshotId, setCurrentScreenshotId] = useState(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const [showCaptions, setShowCaptions] = useState(false);
+  const t = useTranslations('home');
 
   const handleImageLoad = (screenshotId) => {
     setCurrentScreenshotId(screenshotId);
@@ -27,7 +29,7 @@ export default function Home() {
     <main className="container mx-auto px-4 py-8">
       <WelcomeDialog />
       <h1 className="text-3xl font-bold text-center mb-8">
-        Random Lightshot Screenshots
+        {t('title')}
       </h1>
 
       <div className="max-w-3xl mx-auto">
@@ -36,7 +38,9 @@ export default function Home() {
         {currentScreenshotId && (
           <div className="mt-6 space-y-6">
             <div className="bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-base font-medium text-gray-300 mb-4">How do you feel about this screenshot?</h3>
+              <h3 className="text-base font-medium text-gray-300 mb-4">
+                {t('captionSection.title')}
+              </h3>
               <ReactionButtons screenshotId={currentScreenshotId} />
             </div>
 
@@ -49,18 +53,19 @@ export default function Home() {
                     </svg>
                   </div>
                   <div className="text-sm text-gray-300">
-                    <p className="font-medium text-blue-400">Want to add a caption?</p>
-                    <p>Sign in to participate in the caption contest and vote for your favorites! You can see other users' captions after submitting your own.</p>
+                    <p className="font-medium text-blue-400">{t('signInPrompt.title')}</p>
+                    <p>{t('signInPrompt.description')}</p>
                     <button
                       onClick={() => signIn()}
                       className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600"
                     >
-                      Sign in to Participate
+                      {t('signInPrompt.button')}
                     </button>
                   </div>
                 </div>
               </div>
             )}
+
             {session && (
               <>
                 <div className="bg-blue-900/30 border border-blue-500/30 rounded-lg p-4 mb-4">
@@ -71,8 +76,8 @@ export default function Home() {
                       </svg>
                     </div>
                     <div className="text-sm text-gray-300">
-                      <p className="font-medium text-blue-400">Add your caption first!</p>
-                      <p>You'll be able to see other users' captions after submitting your own. This keeps the contest fun and ensures original ideas!</p>
+                      <p className="font-medium text-blue-400">{t('captionSection.addYours')}</p>
+                      <p>{t('captionSection.noCaptions')}</p>
                     </div>
                   </div>
                 </div>
@@ -85,10 +90,11 @@ export default function Home() {
           </div>
         )}
       </div>
+
       <SlideOver
         open={showCaptions}
         setOpen={setShowCaptions}
-        title="Captions"
+        title={t('captionSection.title')}
       >
         <CaptionList
           screenshotId={currentScreenshotId}

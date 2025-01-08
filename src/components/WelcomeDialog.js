@@ -1,8 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function WelcomeDialog() {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations('welcome');
 
   useEffect(() => {
     // Check if user has seen the dialog before
@@ -39,20 +41,20 @@ export default function WelcomeDialog() {
           </div>
 
           <h2 className="text-2xl font-bold text-white mb-4">
-            🎲 Ready for Screenshot Roulette?
+            🎲 {t('title')}
           </h2>
 
           <div className="space-y-4 text-gray-300">
             <div className="bg-gray-700/50 rounded-lg p-4 space-y-3">
               <p>
-                <span className="text-lg">🎯 Every click reveals a random screenshot from someone's computer somewhere in the world.</span>
+                <span className="text-lg">{t('description')}</span>
               </p>
             </div>
 
             <p>
-              <span className="text-yellow-400 text-lg">What will you discover?</span>
+              <span className="text-yellow-400 text-lg">{t('whatWillYouFind')}</span>
               <br />
-              <span className="text-sm opacity-75">Private messages? Secret documents? Funny conversations? Only one way to find out!</span>
+              <span className="text-sm opacity-75">{t('hint')}</span>
             </p>
           </div>
 
@@ -61,7 +63,7 @@ export default function WelcomeDialog() {
               onClick={handleClose}
               className="px-6 py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transform hover:scale-105 transition-all duration-200 text-lg"
             >
-              Start the Hunt! 🎯
+              {t('startButton')}
             </button>
           </div>
         </div>

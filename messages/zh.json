@@ -1,0 +1,173 @@
+{
+  "home": {
+    "title": "随机 Lightshot 截图",
+    "getAnother": "获取另一张截图",
+    "loading": "加载中...",
+    "error": "无法加载图片。请重试！",
+    "signInPrompt": {
+      "title": "想添加说明文字吗？",
+      "description": "登录参与说明文字竞赛并为你喜欢的投票！",
+      "button": "登录参与"
+    },
+    "imageActions": {
+      "share": "分享",
+      "report": "举报",
+      "copied": "链接已复制！",
+      "reportSuccess": "截图举报成功"
+    },
+    "captionSection": {
+      "title": "说明文字",
+      "addYours": "添加你的说明文字...",
+      "submit": "提交",
+      "viewAll": "查看所有说明文字",
+      "noCaptions": "还没有说明文字。来做第一个吧！"
+    },
+    "imageSource": {
+      "fromDb": "此图片从我们的数据库加载",
+      "new": "这是一张新图片"
+    }
+  },
+  "nav": {
+    "home": "首页",
+    "howToPlay": "玩法说明",
+    "leaderboard": "排行榜",
+    "profile": "个人资料",
+    "signIn": "登录",
+    "signOut": "退出"
+  },
+  "captions": {
+    "add": "添加你的说明文字...",
+    "submit": "提交",
+    "submitting": "提交中...",
+    "viewAll": "查看所有说明文字",
+    "none": "还没有说明文字。来做第一个吧！",
+    "signInToAdd": "登录以添加说明文字"
+  },
+  "reactions": {
+    "funny": "搞笑",
+    "shocked": "震惊",
+    "dislike": "不喜欢",
+    "hot": "火爆",
+    "clever": "机智",
+    "wholesome": "暖心",
+    "loading": "加载反应中...",
+    "signInPrompt": "登录以添加反应！",
+    "signIn": "登录",
+    "signInToReact": "登录以添加反应！",
+    "reactionDesc": {
+      "funny": "太搞笑了！",
+      "shocked": "难以置信！",
+      "dislike": "不太好",
+      "hot": "太火了！",
+      "clever": "真聪明！",
+      "wholesome": "让我心情愉悦"
+    }
+  },
+  "profile": {
+    "title": "个人资料",
+    "loading": "加载个人资料中...",
+    "signInRequired": "请登录以查看你的个人资料",
+    "stats": {
+      "totalCaptions": "总说明文字数",
+      "totalLikes": "总获赞数",
+      "screenshotsSeen": "已看截图数",
+      "reactionsGiven": "已给出反应数",
+      "points": {
+        "total": "总积分",
+        "weekly": "本周积分",
+        "daily": "今日积分"
+      }
+    },
+    "captions": {
+      "title": "你的说明文字",
+      "empty": "还没有说明文字",
+      "sort": {
+        "mostLiked": "最多赞",
+        "mostRecent": "最新"
+      },
+      "imagePreview": {
+        "noImage": "无图片"
+      }
+    }
+  },
+  "leaderboard": {
+    "title": "排行榜",
+    "joinPrompt": "想加入竞争吗？",
+    "pointsInfo": {
+      "title": "如何获得积分：",
+      "view": "查看截图",
+      "react": "对截图做出反应",
+      "caption": "添加说明文字",
+      "like": "获得说明文字点赞"
+    },
+    "tabs": {
+      "overall": "总榜",
+      "weekly": "本周",
+      "daily": "今日"
+    },
+    "stats": {
+      "views": "已看截图",
+      "reactions": "已给反应",
+      "captions": "说明文字",
+      "likes": "获得点赞",
+      "points": "分"
+    },
+    "empty": "暂无记录。来做第一个参与者吧！",
+    "loading": "加载排行榜中..."
+  },
+  "howToPlay": {
+    "title": "如何玩截图轮盘",
+    "description": "每次点击都是一次冒险 - 发现来自世界各地的随机截图并与他人竞争！",
+    "game": {
+      "title": "游戏玩法",
+      "description": "截图轮盘让你能访问全球用户拍摄的海量随机截图。每次点击都会揭示一个新谜题 - 你可能会发现私人对话、秘密文档、有趣时刻或惊人发现。"
+    },
+    "scoring": {
+      "title": "获取积分",
+      "description": "通过各种互动提升排名：",
+      "points": {
+        "view": "查看新截图",
+        "react": "对截图做出反应（搞笑、震惊等）",
+        "caption": "为截图添加有趣的说明文字",
+        "like": "说明文字获得点赞"
+      }
+    },
+    "tips": {
+      "title": "专业提示",
+      "tip1": "继续点击 - 永远不知道下一个发现是什么！",
+      "tip2": "快速对发现做出反应 - 分享你的情绪",
+      "tip3": "创意说明文字 - 更有趣的说明文字获得更多赞",
+      "tip4": "每天查看排行榜 - 每天都会产生新的冠军"
+    },
+    "callToAction": "准备好开始发现秘密了吗？加入寻宝之旅，看看你能发现什么！ 🎯"
+  },
+  "loading": {
+    "findingScreenshot": "寻找随机截图中...",
+    "takingTime": "这可能需要几秒钟"
+  },
+  "pwaInstall": {
+    "title": "安装 Caption Clash",
+    "description": {
+      "ios": "要安装，点击分享按钮并选择\"添加到主屏幕\"",
+      "desktop": "在浏览器地址栏中寻找安装图标",
+      "android": "安装我们的应用以获得更好的体验和快速访问！"
+    },
+    "install": "安装应用",
+    "later": "稍后再说"
+  },
+  "welcome": {
+    "title": "准备好玩截图轮盘了吗？",
+    "description": "每次点击都会显示世界上某处某人电脑中的随机截图。",
+    "whatWillYouFind": "你会发现什么？",
+    "hint": "私人消息？秘密文档？有趣对话？只有一个方法知道！",
+    "startButton": "开始寻宝！ 🎯"
+  },
+  "common": {
+    "appName": "Caption Clash",
+    "close": "关闭",
+    "screenshot": {
+      "alt": "随机 Lightshot 截图"
+    },
+    "bullet": "•"
+  }
+} 

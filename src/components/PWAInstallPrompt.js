@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 const PROMPT_INTERVAL = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
 
@@ -8,6 +9,7 @@ export default function PWAInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [isIOS, setIsIOS] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const t = useTranslations();
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -105,31 +107,23 @@ export default function PWAInstallPrompt() {
           <div className="flex-shrink-0">
             <img
               src="/icons/icon-192x192.png"
-              alt="Caption Clash"
+              alt={t('common.appName')}
               className="w-12 h-12 rounded-lg"
             />
           </div>
           <div>
-            <h3 className="text-white font-medium">Install Caption Clash</h3>
+            <h3 className="text-white font-medium">{t('pwaInstall.title')}</h3>
             {isIOS ? (
               <p className="text-sm text-gray-300 mt-1">
-                To install, tap the share button <span className="inline-block">
-                  <svg className="w-4 h-4 inline" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
-                  </svg>
-                </span> and choose "Add to Home Screen"
+                {t('pwaInstall.description.ios')}
               </p>
             ) : isDesktop ? (
               <p className="text-sm text-gray-300 mt-1">
-                Look for the install icon {' '}
-                <svg className="w-4 h-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
-                {' '} in your browser's address bar
+                {t('pwaInstall.description.desktop')}
               </p>
             ) : (
               <p className="text-sm text-gray-300 mt-1">
-                Install our app for a better experience and quick access!
+                {t('pwaInstall.description.android')}
               </p>
             )}
           </div>
@@ -149,13 +143,13 @@ export default function PWAInstallPrompt() {
             onClick={handleInstallClick}
             className="flex-1 bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            Install App
+            {t('pwaInstall.install')}
           </button>
           <button
             onClick={handleDismiss}
             className="flex-1 bg-gray-700 text-gray-300 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-600"
           >
-            Maybe Later
+            {t('pwaInstall.later')}
           </button>
         </div>
       )}

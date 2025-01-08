@@ -1,0 +1,173 @@
+{
+  "home": {
+    "title": "Random Lightshot Screenshots",
+    "getAnother": "Get Another Screenshot",
+    "loading": "Loading...",
+    "error": "Could not load image. Try again!",
+    "signInPrompt": {
+      "title": "Want to add a caption?",
+      "description": "Sign in to participate in the caption contest and vote for your favorites!",
+      "button": "Sign in to Participate"
+    },
+    "imageActions": {
+      "share": "Share",
+      "report": "Report",
+      "copied": "Link copied!",
+      "reportSuccess": "Screenshot reported successfully"
+    },
+    "captionSection": {
+      "title": "Captions",
+      "addYours": "Add your caption...",
+      "submit": "Submit",
+      "viewAll": "View All Captions",
+      "noCaptions": "No captions yet. Be the first!"
+    },
+    "imageSource": {
+      "fromDb": "This image was loaded from our database",
+      "new": "This is a new image"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "howToPlay": "How to Play",
+    "leaderboard": "Leaderboard",
+    "profile": "Profile",
+    "signIn": "Sign in",
+    "signOut": "Sign out"
+  },
+  "captions": {
+    "add": "Add your caption...",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "viewAll": "View All Captions",
+    "none": "No captions yet. Be the first!",
+    "signInToAdd": "Sign in to add captions"
+  },
+  "reactions": {
+    "funny": "Funny",
+    "shocked": "Shocked",
+    "dislike": "Dislike",
+    "hot": "Hot",
+    "clever": "Clever",
+    "wholesome": "Wholesome",
+    "loading": "Loading reactions...",
+    "signInPrompt": "Sign in to react!",
+    "signIn": "Sign in",
+    "signInToReact": "Sign in to react!",
+    "reactionDesc": {
+      "funny": "This is hilarious!",
+      "shocked": "I can't believe it!",
+      "dislike": "Not cool",
+      "hot": "That's fire!",
+      "clever": "Big brain moment",
+      "wholesome": "This made my day"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "loading": "Loading profile...",
+    "signInRequired": "Please sign in to view your profile",
+    "stats": {
+      "totalCaptions": "Total Captions",
+      "totalLikes": "Total Likes",
+      "screenshotsSeen": "Screenshots Seen",
+      "reactionsGiven": "Reactions Given",
+      "points": {
+        "total": "Total Points",
+        "weekly": "Points This Week",
+        "daily": "Points Today"
+      }
+    },
+    "captions": {
+      "title": "Your Captions",
+      "empty": "No captions yet",
+      "sort": {
+        "mostLiked": "Most Liked",
+        "mostRecent": "Most Recent"
+      },
+      "imagePreview": {
+        "noImage": "No image"
+      }
+    }
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "joinPrompt": "Want to join the competition?",
+    "pointsInfo": {
+      "title": "How to earn points:",
+      "view": "View a screenshot",
+      "react": "React to a screenshot",
+      "caption": "Add a caption",
+      "like": "Get likes on your captions"
+    },
+    "tabs": {
+      "overall": "Overall",
+      "weekly": "This Week",
+      "daily": "Today"
+    },
+    "stats": {
+      "views": "Screenshots Seen",
+      "reactions": "Reactions Left",
+      "captions": "Captions",
+      "likes": "Likes Received",
+      "points": "pts"
+    },
+    "empty": "No entries yet. Be the first to participate!",
+    "loading": "Loading leaderboard..."
+  },
+  "howToPlay": {
+    "title": "How to Play Screenshot Roulette",
+    "description": "Every click is a gamble - discover random screenshots from around the world and compete with others!",
+    "game": {
+      "title": "The Game",
+      "description": "Screenshot Roulette gives you access to a vast collection of random screenshots taken by people worldwide. Each click reveals a new mystery - you might find anything from private conversations to secret documents, from funny moments to surprising discoveries."
+    },
+    "scoring": {
+      "title": "Earning Points",
+      "description": "Climb the leaderboard through various interactions:",
+      "points": {
+        "view": "View a new screenshot",
+        "react": "React to a screenshot (funny, shocked, etc.)",
+        "caption": "Add a witty caption to a screenshot",
+        "like": "Get a like on your caption"
+      }
+    },
+    "tips": {
+      "title": "Pro Tips",
+      "tip1": "Keep clicking - you never know what you'll discover next!",
+      "tip2": "React quickly to what you find - share your emotions",
+      "tip3": "Be creative with your captions - funnier captions get more likes",
+      "tip4": "Check the leaderboard daily - new champions are crowned every day"
+    },
+    "callToAction": "Ready to start discovering secrets? Join the hunt and see what you'll find! 🎯"
+  },
+  "loading": {
+    "findingScreenshot": "Finding a random screenshot...",
+    "takingTime": "This might take a few seconds"
+  },
+  "pwaInstall": {
+    "title": "Install Caption Clash",
+    "description": {
+      "ios": "To install, tap the share button and choose \"Add to Home Screen\"",
+      "desktop": "Look for the install icon in your browser's address bar",
+      "android": "Install our app for a better experience and quick access!"
+    },
+    "install": "Install App",
+    "later": "Maybe Later"
+  },
+  "welcome": {
+    "title": "Ready for Screenshot Roulette?",
+    "description": "Every click reveals a random screenshot from someone's computer somewhere in the world.",
+    "whatWillYouFind": "What will you discover?",
+    "hint": "Private messages? Secret documents? Funny conversations? Only one way to find out!",
+    "startButton": "Start the Hunt! 🎯"
+  },
+  "common": {
+    "appName": "Caption Clash",
+    "close": "Close",
+    "screenshot": {
+      "alt": "Random Lightshot Screenshot"
+    },
+    "bullet": "•"
+  }
+} 
