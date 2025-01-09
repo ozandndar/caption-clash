@@ -17,6 +17,23 @@ const authOptions = {
       }
       return session;
     },
+  events: {
+    createUser: async ({ user }) => {
+      // Create initial user stats
+      await prisma.userStats.create({
+        data: {
+          userId: user.id,
+          points: {
+            create: {
+              total: 0,
+              daily: 0,
+              weekly: 0
+            }
+          }
+        }
+      });
+    },
+  },
   },
 }
 

@@ -94,9 +94,7 @@ export async function GET(request) {
         totalReactions: reactionsCount,
       }
     })
-    .filter(user => user.points > 0)
     .sort((a, b) => b.points - a.points)
-    .slice(0, 10)
 
     return new Response(JSON.stringify(leaderboard), {
       status: 200,
