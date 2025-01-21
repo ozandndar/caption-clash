@@ -1,9 +1,9 @@
 import { prisma } from "@/lib/prisma"
 import { generateLightshotUrl, extractImageUrl, verifyImageUrl } from "@/utils/lightshotExtractor"
 
-const BATCH_SIZE = 3
-const TOTAL_ATTEMPTS = 50
-const DELAY_BETWEEN_BATCHES = 5000
+const BATCH_SIZE = 2
+const TOTAL_ATTEMPTS = 1000
+const DELAY_BETWEEN_BATCHES = 30000
 
 async function processSingleScreenshot() {
   try {
