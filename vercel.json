@@ -2,8 +2,7 @@
   "crons": [
     {
       "path": "/api/admin/populate-screenshots",
-      "schedule": "0 3 * * *",
-      "description": "Daily screenshot population (runs between 3:00-3:59 AM UTC)"
+      "schedule": "0 3 * * *"
     }
   ]
 } 
