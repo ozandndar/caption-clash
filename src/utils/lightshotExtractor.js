@@ -13,7 +13,7 @@ export function generateLightshotUrl() {
   return `https://prnt.sc/${generateRandomString()}`;
 }
 
-async function verifyImageUrl(url) {
+export async function verifyImageUrl(url) {
   try {
     console.log(`🔍 Verifying image URL: ${url}`);
     const response = await fetch(url, {
