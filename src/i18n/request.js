@@ -4,13 +4,20 @@ import { cookies, headers } from 'next/headers';
 const SUPPORTED_LANGUAGES = ['en', 'tr'];
 
 function parseAcceptLanguage(acceptLanguage = '') {
-  // Get first language from Accept-Language header
-  const preferredLanguage = acceptLanguage
-    .split(',')[0]
-    ?.split('-')[0] // Get primary language tag
-    ?.toLowerCase();
+  try {
+    if (!acceptLanguage) {
+      return 'en';
+    }
+    const preferredLanguage = acceptLanguage
+      .split(',')[0]
+      ?.split('-')[0]
+      ?.toLowerCase();
 
-  return SUPPORTED_LANGUAGES.includes(preferredLanguage) ? preferredLanguage : 'en';
+    return SUPPORTED_LANGUAGES.includes(preferredLanguage) ? preferredLanguage : 'en';
+  } catch (error) {
+    console.error('Language parsing error:', error);
+    return 'en';
+  }
 }
 
 export default getRequestConfig(async () => {
