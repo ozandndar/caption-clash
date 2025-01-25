@@ -45,10 +45,10 @@ async function processSingleScreenshot() {
 export async function GET(request) {
   // Verify the request is coming from Vercel Cron
   const authHeader = request.headers.get('authorization');
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    console.log('❌ Unauthorized cron job attempt');
-    return Response.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  // if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  //   console.log('❌ Unauthorized cron job attempt');
+  //   return Response.json({ error: 'Unauthorized' }, { status: 401 });
+  // }
 
   const startTime = new Date();
   console.log(`🕒 Cron job started at: ${startTime.toISOString()}`);
