@@ -2,8 +2,8 @@ import { prisma } from "@/lib/prisma"
 import { generateLightshotUrl, extractImageUrl, verifyImageUrl } from "@/utils/lightshotExtractor"
 
 const BATCH_SIZE = 1
-const TOTAL_ATTEMPTS = 30000       // 20 attempts per run
-const DELAY_BETWEEN_BATCHES = 1000  // 5 seconds between batches
+const TOTAL_ATTEMPTS = 100000       // 20 attempts per run
+const DELAY_BETWEEN_BATCHES = 1  // 5 seconds between batches
 
 async function processSingleScreenshot() {
   try {
@@ -45,10 +45,10 @@ async function processSingleScreenshot() {
 export async function GET(request) {
   // Verify the request is coming from Vercel Cron
   const authHeader = request.headers.get('authorization');
-  // if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-  //   console.log('❌ Unauthorized cron job attempt');
-  //   return Response.json({ error: 'Unauthorized' }, { status: 401 });
-  // }
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    console.log('❌ Unauthorized cron job attempt');
+    return Response.json({ error: 'Unauthorized' }, { status: 401 });
+  }
 
   const startTime = new Date();
   console.log(`🕒 Cron job started at: ${startTime.toISOString()}`);
