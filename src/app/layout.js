@@ -49,8 +49,8 @@ export const metadata = {
     images: [
       {
         url: '/images/icons/twitter_card_image.png',
-        width: 1024,
-        height: 1024,
+        width: 1200,
+        height: 628,
         alt: 'Caption Clash - Screenshot Caption Contest'
       }
     ]
