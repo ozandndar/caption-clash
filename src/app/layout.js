@@ -48,7 +48,7 @@ export const metadata = {
     url: 'https://caption-clash.com',
     images: [
       {
-        url: '/images/icons/twitter_card_image.png',
+        url: '/icons/twitter_card_image.png',
         width: 1200,
         height: 628,
         alt: 'Caption Clash - Screenshot Caption Contest'
@@ -59,7 +59,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Caption Clash - Random Screenshot Caption Contest',
     description: 'Create witty captions for random internet screenshots and compete with others!',
-    images: ['/images/icons/twitter_card_image.png']
+    images: ['/icons/twitter_card_image.png']
   },
   alternates: {
     canonical: 'https://caption-clash.com'
