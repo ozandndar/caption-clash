@@ -48,9 +48,9 @@ export const metadata = {
     url: 'https://caption-clash.com',
     images: [
       {
-        url: '/images/og-image.png',
-        width: 1200,
-        height: 630,
+        url: '/images/icons/twitter_card_image.png',
+        width: 1024,
+        height: 1024,
         alt: 'Caption Clash - Screenshot Caption Contest'
       }
     ]
